@@ -1,0 +1,458 @@
+ /* --- CSS 插槽 (CSS Variables) --- */
+ :root {
+     --bg-primary: #0f172a;
+     /* 深藍黑背景 */
+     --bg-secondary: #1e293b;
+     /* 卡片背景 */
+     --text-main: #f8fafc;
+     /* 主要白字 */
+     --text-muted: #94a3b8;
+     /* 次要灰字 */
+     --accent-color: #38bdf8;
+     /* 亮藍色強調 */
+     --accent-hover: #0ea5e9;
+     --gap-section: 80px;
+     --card-radius: 12px;
+     --transition-speed: 0.3s;
+ }
+
+ /* --- Reset & Base Styles --- */
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: 'Inter', sans-serif;
+     background-color: var(--bg-primary);
+     color: var(--text-main);
+     line-height: 1.6;
+     overflow-x: hidden;
+ }
+
+ a {
+     text-decoration: none;
+     color: inherit;
+     transition: color var(--transition-speed);
+ }
+
+ ul {
+     list-style: none;
+ }
+
+ img {
+     max-width: 100%;
+     display: block;
+ }
+
+ /* --- Layout Utilities --- */
+ .container {
+     width: 90%;
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 15px;
+ }
+
+ .section-padding {
+     padding: var(--gap-section) 0;
+ }
+
+ .section-title {
+     font-size: 2rem;
+     margin-bottom: 3rem;
+     text-align: center;
+     position: relative;
+     color: var(--text-main);
+ }
+
+ .section-title::after {
+     content: '';
+     display: block;
+     width: 60px;
+     height: 4px;
+     background-color: var(--accent-color);
+     margin: 10px auto 0;
+     border-radius: 2px;
+ }
+
+ /* --- Navigation --- */
+ .navbar {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     background-color: rgba(15, 23, 42, 0.95);
+     backdrop-filter: blur(10px);
+     z-index: 1000;
+     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+ }
+
+ .nav-container {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     height: 70px;
+ }
+
+ .logo {
+     font-size: 1.5rem;
+     font-weight: 700;
+     color: var(--accent-color);
+     letter-spacing: 1px;
+ }
+
+ .nav-links {
+     display: flex;
+     gap: 2rem;
+ }
+
+ .nav-link:hover {
+     color: var(--accent-color);
+ }
+
+ /* Mobile Menu Checkbox Hack (No JS) */
+ .menu-toggle {
+     display: none;
+ }
+
+ .hamburger {
+     display: none;
+     font-size: 1.5rem;
+     cursor: pointer;
+ }
+
+ /* --- Hero Section --- */
+ .hero-section {
+     height: 100vh;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+     background-size: cover;
+     background-position: center;
+     text-align: center;
+     margin-top: -70px;
+     /* Offset navbar */
+     padding-top: 70px;
+ }
+
+ .hero-content h1 {
+     font-size: 3.5rem;
+     font-weight: 800;
+     margin-bottom: 1rem;
+     line-height: 1.2;
+ }
+
+ .hero-content h1 span {
+     color: var(--accent-color);
+ }
+
+ .hero-content p {
+     font-size: 1.25rem;
+     color: var(--text-muted);
+     margin-bottom: 2rem;
+ }
+
+ .cta-button {
+     display: inline-block;
+     padding: 12px 30px;
+     background-color: var(--accent-color);
+     color: var(--bg-primary);
+     font-weight: 600;
+     border-radius: 50px;
+     transition: transform 0.2s, background-color 0.2s;
+ }
+
+ .cta-button:hover {
+     background-color: var(--accent-hover);
+     transform: translateY(-3px);
+ }
+
+ /* --- About Section --- */
+ .about-content {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 4rem;
+     align-items: center;
+ }
+
+ .about-image {
+     border-radius: var(--card-radius);
+     overflow: hidden;
+     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+ }
+
+ .about-text p {
+     margin-bottom: 1.5rem;
+     color: var(--text-muted);
+     font-size: 1.1rem;
+ }
+
+ /* --- Skill Section --- */
+ .skills-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+     gap: 2rem;
+ }
+
+ .skill-card {
+     background-color: var(--bg-secondary);
+     padding: 2rem;
+     border-radius: var(--card-radius);
+     text-align: center;
+     transition: transform 0.3s, border 0.3s;
+     border: 1px solid transparent;
+ }
+
+ .skill-card:hover {
+     transform: translateY(-10px);
+     border-color: var(--accent-color);
+ }
+
+ .skill-icon {
+     font-size: 3rem;
+     color: var(--accent-color);
+     margin-bottom: 1rem;
+ }
+
+ .skill-name {
+     font-weight: 600;
+     font-size: 1.1rem;
+ }
+
+ /* --- Portfolio Section (CSS Only Carousel) --- */
+ .portfolio-container {
+     overflow: hidden;
+     /* Hide overflow */
+     width: 100%;
+     position: relative;
+ }
+
+ /* The track that moves */
+ .carousel-track {
+     display: flex;
+     width: 200%;
+     /* 2 groups of slides */
+     animation: slide-animation 10s infinite ease-in-out;
+ }
+
+ /* Each group contains 3 cards */
+ .slide-group {
+     width: 50%;
+     /* Each group takes 50% of the 200% track (so 100% of viewport) */
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 2rem;
+     padding: 0 1rem;
+     /* Gap correction */
+ }
+
+ .project-card {
+     background-color: var(--bg-secondary);
+     border-radius: var(--card-radius);
+     overflow: hidden;
+     display: flex;
+     flex-direction: column;
+     height: 100%;
+ }
+
+ .project-img {
+     height: 200px;
+     overflow: hidden;
+ }
+
+ .project-img img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: transform 0.5s;
+ }
+
+ .project-card:hover .project-img img {
+     transform: scale(1.1);
+ }
+
+ .project-info {
+     padding: 1.5rem;
+     flex-grow: 1;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+ }
+
+ .project-title {
+     font-size: 1.25rem;
+     margin-bottom: 0.5rem;
+     color: var(--text-main);
+ }
+
+ .project-desc {
+     font-size: 0.9rem;
+     color: var(--text-muted);
+     margin-bottom: 1rem;
+ }
+
+ .project-tags {
+     display: flex;
+     gap: 0.5rem;
+     flex-wrap: wrap;
+ }
+
+ .tag {
+     font-size: 0.75rem;
+     background-color: rgba(56, 189, 248, 0.1);
+     color: var(--accent-color);
+     padding: 4px 8px;
+     border-radius: 4px;
+ }
+
+ /* Keyframes for switching every 5 seconds */
+ /* 0-45%: Show Group 1 */
+ /* 50-95%: Show Group 2 */
+ /* 100%: Back to Group 1 */
+ @keyframes slide-animation {
+
+     0%,
+     45% {
+         transform: translateX(0);
+     }
+
+     50%,
+     95% {
+         transform: translateX(-50%);
+     }
+
+     100% {
+         transform: translateX(0);
+     }
+ }
+
+ /* Pause animation on hover for accessibility */
+ .carousel-track:hover {
+     animation-play-state: paused;
+ }
+
+ /* --- Contact Section --- */
+ .contact-content {
+     text-align: center;
+     max-width: 600px;
+     margin: 0 auto;
+ }
+
+ .contact-cards {
+     display: flex;
+     justify-content: center;
+     gap: 2rem;
+     margin-top: 3rem;
+ }
+
+ .contact-card {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 1rem;
+     padding: 2rem;
+     background-color: var(--bg-secondary);
+     border-radius: var(--card-radius);
+     min-width: 160px;
+     transition: 0.3s;
+ }
+
+ .contact-card:hover {
+     background-color: var(--accent-color);
+     color: var(--bg-primary);
+     transform: translateY(-5px);
+ }
+
+ .contact-card i {
+     font-size: 2.5rem;
+ }
+
+ /* --- Footer --- */
+ .site-footer {
+     text-align: center;
+     padding: 2rem 0;
+     border-top: 1px solid rgba(255, 255, 255, 0.05);
+     color: var(--text-muted);
+     font-size: 0.9rem;
+     margin-top: auto;
+ }
+
+ /* --- RWD Media Queries --- */
+ @media (max-width: 992px) {
+     .about-content {
+         grid-template-columns: 1fr;
+         text-align: center;
+     }
+
+     .about-text {
+         order: 2;
+     }
+
+     .about-image {
+         order: 1;
+         max-height: 300px;
+     }
+
+     .about-image img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .hero-content h1 {
+         font-size: 2.5rem;
+     }
+
+     /* Mobile Nav */
+     .hamburger {
+         display: block;
+     }
+
+     .nav-links {
+         position: absolute;
+         top: 70px;
+         left: 0;
+         width: 100%;
+         background-color: var(--bg-secondary);
+         flex-direction: column;
+         gap: 0;
+         max-height: 0;
+         overflow: hidden;
+         transition: max-height 0.3s ease;
+         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+     }
+
+     .nav-link {
+         padding: 1.5rem;
+         display: block;
+         text-align: center;
+         border-top: 1px solid rgba(255, 255, 255, 0.05);
+     }
+
+     /* Checkbox Hack Logic */
+     .menu-toggle:checked~.nav-links {
+         max-height: 300px;
+     }
+
+     /* Portfolio on Mobile: Stack them or simplify animation */
+     /* Since strict requirement is show 3 then replace, on mobile 3 columns is too small.
+               We will change grid to 1 column but keep animation logic (User sees 1 big card at a time scrolling? 
+               Or we just stack 3 cards vertically within the slide view).
+               Here we stack them vertically to ensure readability */
+
+     .slide-group {
+         grid-template-columns: 1fr;
+         /* Stack cards vertically */
+         gap: 1rem;
+         /* Adjust height or let it flow? If we let flow, animation might be jumpy if heights differ.
+                   For safety, we keep them flowing but ensure user knows its a list */
+     }
+
+     .contact-cards {
+         flex-direction: column;
+     }
+ }

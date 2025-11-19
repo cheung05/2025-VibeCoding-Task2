@@ -1,37 +1,256 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; max-width: 100%; }
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", Arial, sans-serif; line-height: 1.6; }
-    img { max-width: 100%; height: auto; display: block; }
-    .container { width: 1920px; margin: 0 auto; padding: 16px; }
-    nav a { margin-right: 12px; text-decoration: none; }
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-    .col-12 { grid-column: span 12; }
-    @media (min-width: 768px) { .col-md-6 { grid-column: span 6; } }
-    .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="JIMMY 的前端工程師作品集。專注於打造高效、響應式且具備極佳使用者體驗的網頁應用程式。">
+    <meta name="keywords" content="前端工程師, Frontend Developer, HTML, CSS, Portfolio, 作品集, Web Design">
+    <meta name="author" content="JIMMY">
+    <meta property="og:title" content="JIMMY · Frontend Dev">
+    <meta property="og:description" content="專注細節與使用者體驗的前端開發者">
+    <meta property="og:type" content="website">
+    
+    <title>JIMMY · Frontend Dev</title>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="container" role="banner">
-    <nav aria-label="主選單">
-      <a href="#about">關於我</a>
-      <a href="#projects">作品集</a>
-      <a href="https://example.com/blog">技術部落格</a>
-      <a href="mailto:me@example.com">聯絡我</a>
-    </nav>
-    <h1>你好，我是小明：前端工程師新手之路</h1>
-    <h1>你好，我是小明：前端工程師新手之路</h1>
-    <p>歡迎來到我的個人網站！這裡整理了學習紀錄、Side Project 與實作心得。</p>
-  </header>
 
-  <footer class="container" role="contentinfo">
-    <p>© 2025 My Portfolio · <a href="#">GitHub</a></p>
-    <img src="https://source.unsplash.com/600x200/?technology,abstract" alt="">
-  </footer>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">JIMMY<span style="color:white">.DEV</span></a>
+            
+            <!-- CSS-only Hamburger Menu -->
+            <input type="checkbox" class="menu-toggle" id="nav-toggle">
+            <label for="nav-toggle" class="hamburger">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">關於我</a></li>
+                <li><a href="#skills" class="nav-link">專業技能</a></li>
+                <li><a href="#portfolio" class="nav-link">作品集</a></li>
+                <li><a href="#contact" class="nav-link">聯絡方式</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container hero-content">
+            <h1>Hi, 我是 Jimmy<br><span>Building Digital Experiences</span></h1>
+            <p>專注於打造高效、優雅且響應式的前端網頁應用程式</p>
+            <a href="#portfolio" class="cta-button">查看作品</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">關於我</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Coding Workspace">
+                </div>
+                <div class="about-text">
+                    <p>
+                        你好！我是 Jimmy，一名熱愛像素完美設計的前端工程師。我的旅程始於對網站運作原理的好奇，如今已轉化為對撰寫乾淨、語意化 HTML 與高效 CSS 架構的堅持。我相信優秀的程式碼不僅是為了機器運作，更是為了創造令人愉悅的使用者體驗。
+                    </p>
+                    <p>
+                        在過去的開發經驗中，我專注於解決跨瀏覽器相容性問題，並致力於提升網站效能與 SEO 排名。我喜歡挑戰複雜的 UI 互動設計，同時確保網站能在各種裝置上完美呈現。我不僅是代碼的撰寫者，更是設計與技術之間的橋樑。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding" style="background-color: rgba(255,255,255,0.02);">
+        <div class="container">
+            <h2 class="section-title">專業技能</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-html5 skill-icon"></i>
+                    <div class="skill-name">HTML5 / Semantic UI</div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-css3-alt skill-icon"></i>
+                    <div class="skill-name">CSS3 / Animation</div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js skill-icon"></i>
+                    <div class="skill-name">JavaScript (ES6+)</div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-react skill-icon"></i>
+                    <div class="skill-name">React Ecosystem</div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-git-alt skill-icon"></i>
+                    <div class="skill-name">Git Version Control</div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-mobile-alt skill-icon"></i>
+                    <div class="skill-name">RWD / Mobile First</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">精選作品</h2>
+            
+            <!-- CSS Carousel Wrapper -->
+            <div class="portfolio-container">
+                <div class="carousel-track">
+                    
+                    <!-- Group 1: First 3 Projects -->
+                    <div class="slide-group">
+                        <!-- Card 1 -->
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dashboard UI">
+                            </div>
+                            <div class="project-info">
+                                <div>
+                                    <h3 class="project-title">SaaS 分析儀表板</h3>
+                                    <p class="project-desc">為企業客戶設計的數據視覺化後台，專注於清晰的資訊層級與深色模式體驗。</p>
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">CSS Grid</span>
+                                    <span class="tag">Flexbox</span>
+                                    <span class="tag">Responsive</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="E-commerce Site">
+                            </div>
+                            <div class="project-info">
+                                <div>
+                                    <h3 class="project-title">極簡電商平台</h3>
+                                    <p class="project-desc">以轉換率為核心的購物網站，優化了結帳流程與商品展示卡片的互動效果。</p>
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">HTML5</span>
+                                    <span class="tag">SCSS</span>
+                                    <span class="tag">UI/UX</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Coding Blog">
+                            </div>
+                            <div class="project-info">
+                                <div>
+                                    <h3 class="project-title">技術部落格主題</h3>
+                                    <p class="project-desc">針對程式碼閱讀體驗優化的部落格版型，包含語法高亮配色與排版設計。</p>
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">Typography</span>
+                                    <span class="tag">Accessibility</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group 2: Next 3 Projects -->
+                    <div class="slide-group">
+                        <!-- Card 4 -->
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Financial App">
+                            </div>
+                            <div class="project-info">
+                                <div>
+                                    <h3 class="project-title">FinTech 登陸頁面</h3>
+                                    <p class="project-desc">高信任感的金融科技產品首頁，運用微互動與視差滾動增強品牌質感。</p>
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">Animation</span>
+                                    <span class="tag">Parallax</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 5 -->
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team App">
+                            </div>
+                            <div class="project-info">
+                                <div>
+                                    <h3 class="project-title">協作工具介面</h3>
+                                    <p class="project-desc">模擬即時協作軟體的介面原型，展示複雜的工具列佈局與狀態變化。</p>
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">CSS Variables</span>
+                                    <span class="tag">Layout</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 6 -->
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Social Media Kit">
+                            </div>
+                            <div class="project-info">
+                                <div>
+                                    <h3 class="project-title">社群媒體套件</h3>
+                                    <p class="project-desc">為內容創作者打造的連結整合頁面，具備高度可客製化的主題系統。</p>
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">Dark Mode</span>
+                                    <span class="tag">Mobile First</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding" style="background-color: rgba(255,255,255,0.02);">
+        <div class="container">
+            <h2 class="section-title">聯絡方式</h2>
+            <div class="contact-content">
+                <p>有興趣合作或是想聊聊前端技術嗎？歡迎透過以下方式聯繫我。</p>
+                <div class="contact-cards">
+                    <a href="mailto:jimmy@example.com" class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email Me</span>
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2023 JIMMY · Frontend Dev. All rights reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
